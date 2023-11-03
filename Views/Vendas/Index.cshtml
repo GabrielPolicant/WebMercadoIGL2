@@ -1,0 +1,65 @@
+﻿@model IEnumerable<WebMercadoIGL2.Models.Venda>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ProdutoID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClienteID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FuncionarioID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.QntdVendida)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.valorTotal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.data)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProdutoID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClienteID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FuncionarioID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QntdVendida)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.valorTotal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.data)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.idVenda">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.idVenda">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.idVenda">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
